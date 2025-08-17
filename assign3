@@ -35,5 +35,5 @@ for e in uni:
     exp.append(float(ln))
 
 
-plt.hist(exp, bins=40, color='skyblue', edgecolor='black')
+plt.hist(exp, bins=40, color='blue', edgecolor='black')
 plt.show()

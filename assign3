@@ -1,0 +1,39 @@
+#Name=Subhajit Biswal Rollno=2311188 Batch=2023 Assignment question 3 and 4 #
+
+
+
+# third question
+from mylib import *
+import matplotlib.pyplot as plt
+import numpy as np
+trials=5000
+pi_values=[]
+a=1103515245
+c=12345
+m=32768
+x=LCG(a,c,m,0.1,trials)
+y=LCG(a,c,m,9,trials)
+
+inside=0
+for i in range(trials):
+    if (((x[i])/m)**2)+(((y[i])/m)**2)<=1:
+        inside+=1
+    if i%20==0 and not(i==0):
+        pi_values.append(4*inside/i)
+x_axis=[]
+for j in range (trials):
+    if j%20==0 and not(j==0):
+        x_axis.append(j)
+Plot(x_axis, pi_values , 'Pi_vs_trials', 'trials', 'pi')
+
+# fourth question
+uni=LCG(a,c,m,2.1,trials)
+exp=[]
+for e in uni:
+
+    ln=(np.log(e/m))*(-1)
+    exp.append(float(ln))
+
+
+plt.hist(exp, bins=40, color='skyblue', edgecolor='black')
+plt.show()
